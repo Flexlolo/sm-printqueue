@@ -31,8 +31,6 @@ GLOBAL VARIABLES
 */
 
 #define LIBRARY_NAME "printqueue"
-#define STRING_MAXLENGTH 255
-
 
 ArrayList g_hQueue[MAXPLAYERS + 1][QPrint_Types];
 
@@ -64,7 +62,7 @@ public int Native_QPrintAdd(Handle plugin, int numParams)
 	int client = GetNativeCell(1);
 	int type = GetNativeCell(3);
 
-	char message[STRING_MAXLENGTH + 1];
+	char message[QPRINT_STRING_MAXLENGTH + 1];
 	GetNativeString(2, message, sizeof(message));
 
 	Queue_Add(client, message, type);
@@ -78,7 +76,7 @@ stock void Queue_Add(int client, const char[] message, int type)
 {
 	if (g_hQueue[client][type] == null)
 	{
-		g_hQueue[client][type] = new ArrayList(STRING_MAXLENGTH);	
+		g_hQueue[client][type] = new ArrayList(QPRINT_STRING_MAXLENGTH);	
 	}
 
 	g_hQueue[client][type].PushString(message);
@@ -92,7 +90,7 @@ stock void Queue_Tick(int client)
 		{
 			if (g_hQueue[client][type].Length)
 			{
-				char message[STRING_MAXLENGTH + 1];
+				char message[QPRINT_STRING_MAXLENGTH + 1];
 				g_hQueue[client][type].GetString(0, message, sizeof(message));	
 
 				if (type == QPrint_Chat)

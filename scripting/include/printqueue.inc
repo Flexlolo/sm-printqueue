@@ -3,6 +3,8 @@
 #endif
 #define _printqueue_included
 
+#define QPRINT_STRING_MAXLENGTH 1024
+
 enum 
 {
 	QPrint_Console,
@@ -22,7 +24,7 @@ enum
 */
 native void QPrintAdd(int client, const char[] mesage, int type);
 
-
+#include <lololib>
 
 /*
 * Send chat message to a single client
@@ -31,7 +33,7 @@ stock void QPrintToChat(int client, const char[] message, any ...)
 {
 	SetGlobalTransTarget(client);
 
-	int length = strlen(message) + 255;
+	int length = strlen(message) + QPRINT_STRING_MAXLENGTH;
 	char[] buffer = new char[length];
 	VFormat(buffer, length, message, 3);
 
@@ -49,7 +51,7 @@ stock void QPrintToChatAll(const char[] message, any ...)
 		{
 			SetGlobalTransTarget(i);
 
-			int length = strlen(message) + 255;
+			int length = strlen(message) + QPRINT_STRING_MAXLENGTH;
 			char[] buffer = new char[length];
 			VFormat(buffer, length, message, 2);
 
@@ -69,7 +71,7 @@ stock void QPrintToChatAllExcept(int client, const char[] message, any ...)
 		{
 			SetGlobalTransTarget(i);
 
-			int length = strlen(message) + 255;
+			int length = strlen(message) + QPRINT_STRING_MAXLENGTH;
 			char[] buffer = new char[length];
 			VFormat(buffer, length, message, 2);
 
@@ -85,7 +87,7 @@ stock void QPrintToConsole(int client, const char[] message, any ...)
 {
 	SetGlobalTransTarget(client);
 
-	int length = strlen(message) + 255;
+	int length = strlen(message) + QPRINT_STRING_MAXLENGTH;
 	char[] buffer = new char[length];
 	VFormat(buffer, length, message, 3);
 
@@ -103,7 +105,7 @@ stock void QPrintToConsoleAll(const char[] message, any ...)
 		{
 			SetGlobalTransTarget(i);
 
-			int length = strlen(message) + 255;
+			int length = strlen(message) + QPRINT_STRING_MAXLENGTH;
 			char[] buffer = new char[length];
 			VFormat(buffer, length, message, 2);
 
@@ -123,7 +125,7 @@ stock void QPrintToConsoleAllExcept(int client, const char[] message, any ...)
 		{
 			SetGlobalTransTarget(i);
 
-			int length = strlen(message) + 255;
+			int length = strlen(message) + QPRINT_STRING_MAXLENGTH;
 			char[] buffer = new char[length];
 			VFormat(buffer, length, message, 2);
 
