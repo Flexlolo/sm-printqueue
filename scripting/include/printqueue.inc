@@ -39,7 +39,7 @@ stock void QPrintToChat(int client, const char[] message, any ...)
 }
 
 /*
-* Send chat message to a all clients
+* Send chat message to all clients
 */
 stock void QPrintToChatAll(const char[] message, any ...)
 {
@@ -59,7 +59,7 @@ stock void QPrintToChatAll(const char[] message, any ...)
 }
 
 /*
-* Send chat message to a all clients except one
+* Send chat message to all clients except one
 */
 stock void QPrintToChatAllExcept(int client, const char[] message, any ...)
 {
@@ -93,7 +93,7 @@ stock void QPrintToConsole(int client, const char[] message, any ...)
 }
 
 /*
-* Send console message to a all clients
+* Send console message to all clients
 */
 stock void QPrintToConsoleAll(const char[] message, any ...)
 {
@@ -113,7 +113,7 @@ stock void QPrintToConsoleAll(const char[] message, any ...)
 }
 
 /*
-* Send console message to a all clients except one
+* Send console message to all clients except one
 */
 stock void QPrintToConsoleAllExcept(int client, const char[] message, any ...)
 {
